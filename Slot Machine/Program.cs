@@ -60,34 +60,72 @@ namespace Slot_Machine
             //   Console.WriteLine(name[0, 2]);
 
 
-            int[,] number = new int[,]
-            {
-                {1, 2, 3 },
-                {4, 5, 6 },
-                {7, 8, 9 },
-            };
+            //int[,] number = new int[,]
+            //{
+            //    {1, 2, 3 },
+            //    {4, 5, 6 },
+            //    {7, 8, 9 },
+            //};
 
-                 Random num = new();
-            for (int i = 0; i < 3; i++)
-            {
-                int value = num.Next(0, number.Length);
-                Console.WriteLine("{0} {0} {0}", value);
-            }
+            //Random num = new();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    int value = num.Next(0, number.Length);
+            //    Console.WriteLine("{0} {0} {0}", value);
+            //}
+
+            //int[,] number = new int[,];
+            //int[] gridNumbers = new int[9];
+            //gridNumbers[0] = 1;
+            //gridNumbers[1] = 2;
+            //gridNumbers[2] = 3;
+            //gridNumbers[3] = 4;
+            //gridNumbers[4] = 5;
+            //gridNumbers[5] = 6;
+            //gridNumbers[6] = 7;
+            //gridNumbers[7] = 8;
+            //gridNumbers[8] = 9;
+            //Random num = new();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    int value = num.Next(0, gridNumbers.Length);
+            //    Console.WriteLine("{0} {0} {0}",value);
+            //Console.WriteLine("{0} {0} (0}",value);
 
 
 
+            //var number = new[,]
+            //{
+            //    {0.1, 0.2, 0.3,},
+            //    {1.1, 1.2, 1.3,},
+            //    {2.1, 2.2, 2.3,},
+            //    {3.1, 3.2, 3.3,},
+            //};
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    int value = number.Next(0, number.Length);
+            //    Console.WriteLine("{0}", value);
+            //}
 
-            //
-            //int value = number.Next(0, int.getUpperBound);
-            //Console.Write(array[value]);
+            //int[,] gridNumbers = {
+            //     { 1, 2, 3},
+            //     { 4, 5, 6},
+            //     { 7, 8, 9}
+
+            //    };
+            //Random num = new();
+            //int[,] myArray = new int[3, 3];
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    int value = num.Next(0, gridNumbers.Length);
+
+
+            //    Console.WriteLine("{0}" + "{0}" + "{0}", value);
+            //}
+
         }
-        
     }
-
-
-
 }
-    //Console.WriteLine(number[0, 2]);
 
 
 
@@ -105,5 +143,67 @@ namespace Slot_Machine
 
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
