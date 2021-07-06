@@ -59,21 +59,43 @@ namespace Slot_Machine
             //};
             //   Console.WriteLine(name[0, 2]);
 
+            int[] oneDim = new int[50];
+            int[,] twoDim = new int[3, 3]; //initializes an 2 dimensinal array with the size 3 by 3
 
-            //int[,] number = new int[,]
-            //{
-            //    {1, 2, 3 },
-            //    {4, 5, 6 },
-            //    {7, 8, 9 },
-            //};
+            Random rng = new();
 
-            //Random num = new();
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    int value = num.Next(0, number.Length);
-            //    Console.WriteLine("{0} {0} {0}", value);
-            //}
+            for (int i = 0; i < oneDim.Length; i++)
+            {
+                oneDim[i] = rng.Next(2);
+            }
 
+
+            //fill 2d array with random numbers
+
+
+            int[,] number = new int[,]
+            {
+                {1, 2, 3 },
+                {4, 5, 6 },
+                {7, 8, 9 },
+            };
+
+
+            for (int i = 0; i < number.GetLength(0); i++)
+            {
+                for (int j = 0; j < number.GetLength(1); j++)
+                {
+                    number[i, j] = rng.Next(3);
+
+                }
+            }
+
+
+
+            //int value = rng.Next(0, number.Length);
+            ////    Console.WriteLine("{0} {0} {0}", value);
+
+            //Console.WriteLine($"{value} {value} {value}");
             //int[,] number = new int[,];
             //int[] gridNumbers = new int[9];
             //gridNumbers[0] = 1;
@@ -124,6 +146,8 @@ namespace Slot_Machine
             //}
 
         }
+
+
     }
 }
 
