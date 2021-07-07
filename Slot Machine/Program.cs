@@ -59,36 +59,34 @@ namespace Slot_Machine
             //};
             //   Console.WriteLine(name[0, 2]);
 
-            int[] oneDim = new int[50];
-            int[,] twoDim = new int[3, 3]; //initializes an 2 dimensinal array with the size 3 by 3
+            //int[] oneDim = new int[50];
+            //initializes an 2 dimensinal array with the size 3 by 3
 
-            Random rng = new();
+            //UI.DisplayWelcomeScreen();
 
-            for (int i = 0; i < oneDim.Length; i++)
-            {
-                oneDim[i] = rng.Next(2);
-            }
+
+
+            //for (int i = 0; i < oneDim.Length; i++)
+            //{
+            //    oneDim[i] = rng.Next(2);
+            //}
 
 
             //fill 2d array with random numbers
 
+            //int[,] number = new int[3, 3];
+            // Random rng = new();
 
-            int[,] number = new int[,]
-            {
-                {1, 2, 3 },
-                {4, 5, 6 },
-                {7, 8, 9 },
-            };
+            //for (int i = 0; i < number.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < number.GetLength(1); j++)
+            //    {
+            //        number[i, j] = rng.Next();
+            //        Console.WriteLine("{0}", i);
+            //    }
+            //    //Console.WriteLine($"{number} {number} {number}", i );
 
-
-            for (int i = 0; i < number.GetLength(0); i++)
-            {
-                for (int j = 0; j < number.GetLength(1); j++)
-                {
-                    number[i, j] = rng.Next(3);
-
-                }
-            }
+            //}
 
 
 
@@ -129,24 +127,127 @@ namespace Slot_Machine
             //    Console.WriteLine("{0}", value);
             //}
 
-            //int[,] gridNumbers = {
-            //     { 1, 2, 3},
-            //     { 4, 5, 6},
-            //     { 7, 8, 9}
+            //int[,] gridNumbers = new int [3, 3];
 
-            //    };
             //Random num = new();
-            //int[,] myArray = new int[3, 3];
-            //for (int i = 0; i < 3; i++)
+
+            //for (int i = 0; i < gridNumbers.GetLength(0); i++)
             //{
-            //    int value = num.Next(0, gridNumbers.Length);
 
+            //    for (int j = 0; j < gridNumbers.GetLength(1); j++) 
+            //    {
 
-            //    Console.WriteLine("{0}" + "{0}" + "{0}", value);
+            //        int gridNumber = num.Next(0, gridNumbers.Length);
+            //        Console.WriteLine($"{0}" + "{0}" + "{0}", gridNumber);
+            //    }
             //}
+
+
+
+            //int[,] number = new int[3, 3];
+            //Random rng = new();
+
+            //for (int i = 0; i < number.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < number.GetLength(1); j++)
+            //    {
+            //        number[i, j] = rng.Next();
+            //        Console.Write(number[i, j] + " ");
+            //    }
+            //    Console.WriteLine(" ");
+
+            //}
+
+
+            int[,] gridNumbers = new int[3, 3];
+            Random rng = new();
+            for (int i = 0; i < gridNumbers.GetLength(0); i++)
+            {
+                for (int j = 0; j < gridNumbers.GetLength(1); j++)
+                {
+                    gridNumbers[i, j] = rng.Next(0,9);
+                    Console.Write(gridNumbers[i, j] + " ");
+                }
+                Console.WriteLine(" ");
+            }
+
+            if ((gridNumbers[0,0]) == (gridNumbers[0,1]) && (gridNumbers[0,1]) == (gridNumbers[0,2]))
+            {
+                Console.WriteLine("Congrats you win");
+            }
+            if ((gridNumbers[1, 0]) == (gridNumbers[1, 1]) && (gridNumbers[1, 1]) == (gridNumbers[1, 2]))
+            {
+                Console.WriteLine("Congrats you win");
+            }
+            if ((gridNumbers[2, 0]) == (gridNumbers[2, 1]) && (gridNumbers[2, 1]) == (gridNumbers[2, 2]))
+            {
+                Console.WriteLine("Congrats you win");
+            }
+
+
+
+
+
+
+
+
+
+
+            //int gridPosition1 = [0, 2];
+            //int gridPosition2 = [0, 2];
+            //int gridPosition3 = [0, 2];
+
+            //if ((gridPosition1 == gridPosition2) && (gridPosition2 == gridPosition3))
+            //{
+            //    Console.WriteLine("You win!!!");
+            //}
+
+
+            //int gridPosition1 = ([0, 0],[0, 1],[0, 2]);
+            //int gridPosition2 = ([1, 0],[1, 1],[1, 2]);
+            //int gridPosition3 = ([2, 0],[2, 1],[2, 2]);
+
+            //if ((gridPosition1 == gridPosition2) && (gridPosition2 == gridPosition3))
+            //{
+            //    Console.WriteLine("You win!!!");
+            //}
+
+            //int reelspin1 = rng.Next(0, 9);
+            //int reelspin2 = rng.Next(0, 9);
+            //int reelspin3 = rng.Next(0, 9);
+            //if ((reelspin1 == reelspin2) && (reelspin2 == reelspin3))
+            //{
+            //    Console.WriteLine("You win!!!");
+            //}
+
+            //bool spin = (0, 0 == 0, 1) && (0, 1 == 0, 2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
 
+
+
+        //int[,] GenerateRandom2Darray()
+        //{
+
+        //}
 
     }
 }
