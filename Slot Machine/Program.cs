@@ -8,7 +8,14 @@ namespace Slot_Machine
     class Program
     {
         static void Main(string[] args)
-        {                
+        {
+            int[,] gridNumbers = gridNumberGenerator();
+            gridResult(gridNumbers);
+
+        }
+
+        private static int[,] gridNumberGenerator()
+        {
             int[,] gridNumbers = new int[3, 3];
             Random rng = new();
             for (int i = 0; i < gridNumbers.GetLength(0); i++)
@@ -20,8 +27,8 @@ namespace Slot_Machine
                 }
                 Console.WriteLine(" ");
             }
-            gridResult(gridNumbers);
 
+            return gridNumbers;
         }
 
         private static void gridResult(int[,] gridNumbers)
