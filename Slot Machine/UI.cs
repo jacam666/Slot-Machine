@@ -6,17 +6,23 @@ using System.Threading.Tasks;
 
 namespace Slot_Machine
 {
-    //static class UI
-    //{
-    //    public static void DisplayWelcomeScreen()
-    //    {
-    //        Console.WriteLine("Welcome to my great slot machine");
-    //    }
+    static class UI
+    {
+        public static void DisplayWelcomeScreen()
+        {
+            Console.WriteLine("Welcome to my slot game ");
+        }
 
-    //    public void DisplayCurrentSlotGird(int[,] grid)
-    //    {
-    //        //probably for loops
+        //public static void DisplayCurrentSlotGrid(int[,] grid)
+        //{
             
-    //    }
-    //}
+        //}
+        public static void DisplayWinInfo(int amount)
+        {
+            if (amount > 0)
+                Console.WriteLine($"You win!! £{amount}");
+        }
+
+        
+    }
 }
