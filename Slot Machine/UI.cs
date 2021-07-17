@@ -13,16 +13,22 @@ namespace Slot_Machine
             Console.WriteLine("Welcome to my slot game ");
         }
 
-        //public static void DisplayCurrentSlotGrid(int[,] grid)
-        //{
-            
-        //}
-        public static void DisplayWinInfo(int amount)
+        public static void DisplayCurrentSlotGrid(int[,] grid)
+        {
+        
+        }
+        public static void DisplayWinInfo(int amount )
         {
             if (amount > 0)
                 Console.WriteLine($"You win!! £{amount}");
+                   
+        }
+        public static void GridDisplay()
+        {
+
+            Console.WriteLine(" ");
         }
 
-        
+
     }
 }
