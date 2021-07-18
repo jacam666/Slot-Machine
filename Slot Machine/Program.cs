@@ -47,18 +47,8 @@ namespace Slot_Machine
 
                 int wonCash = CashWonWithGrid(gridNumbers);
 
-                //static int CashWonWithGrid(int[,] grid)
-                //{
-                //    int cash = 0;
-                //    cash += 2;
-                //    return cash;
-
-                //}
-
                 UI.DisplayWinInfo(wonCash);
                 cash = cash + wonCash;
-                //if (cash > 0)
-                //    cash += 2;
 
                 //UI.DisplayCurrentSlotGrid(gridNumbers);
             }
@@ -86,35 +76,39 @@ namespace Slot_Machine
             /// </summary>
             /// <param name="grid">the gird to check</param>
             /// <returns>the won amount</returns>
+        }
+        static void GridChecker(int[,] grid)
 
-            static int GridChecker(int[,] grid)
-
+        {
+            int cash = 0;
+            for (int i = 0; i < grid.GetLength(0); i++)
             {
-                int cash = 0;
-                for (int i = 0; i < grid.GetLength(0); i++)
+                if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines
                 {
-                    if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines
-                    {
-                        cash += 2;
-                    }
-                    if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
-                    {
-                        cash += 2;
-                    }
-                    if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
-                    {
-                        cash += 2;
-                    }
-
-                    if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0])) // diagonal lines
-                    {
-                        cash += 2;
-                    }
-                    return cash;
+                    cash += 2;
+                }
+                if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
+                {
+                    cash += 2;
                 }
 
+
+
+
+                if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
+                {
+                    cash += 2;
+                }
+
+                if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0])) // diagonal lines
+                {
+                    cash += 2;
+                }
+                return cash;
             }
+            
         }
+
         static int CashWonWithGrid(int[,] grid)
         {
             int cash = 0;

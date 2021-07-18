@@ -27,6 +27,7 @@ namespace Slot_Machine
             Console.WriteLine(" ");
         }
 
-
+       
     }
+    
 }
