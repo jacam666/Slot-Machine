@@ -19,6 +19,7 @@ namespace Slot_Machine
             double cash = Convert.ToDouble(Console.ReadLine());
             string response;
 
+
             for (; ; ) // Loop forever
             {
                 if (cash <= 0)
@@ -30,7 +31,7 @@ namespace Slot_Machine
 
                 Console.WriteLine($"Cash = £{cash}");
                 Console.WriteLine("Play Slots? y/n");
-                
+
                 response = Console.ReadLine();
 
                 if (response == "n")
@@ -45,23 +46,23 @@ namespace Slot_Machine
                 gridNumbers = GridNumberGenerator();
 
                 int wonCash = CashWonWithGrid(gridNumbers);
-                //cash = cash + wonCash;
+
                 static int CashWonWithGrid(int[,] grid)
                 {
                     int cash = 0;
-                    //cash = cash + amount;
-
+                    cash += 2;
                     return cash;
+                    
                 }
 
                 UI.DisplayWinInfo(wonCash);
-                
+                cash = cash + wonCash;
+                //if (cash > 0)
+                //        cash += 2;
 
                 //UI.DisplayCurrentSlotGrid(gridNumbers);
             }
             GridChecker(grid);
-
-
 
             static int[,] GridNumberGenerator()
             {
@@ -86,8 +87,6 @@ namespace Slot_Machine
             /// <param name="grid">the gird to check</param>
             /// <returns>the won amount</returns>
 
-            
-
             static void GridChecker(int[,] grid)
 
             {
@@ -110,9 +109,9 @@ namespace Slot_Machine
                     {
                         //cash += 2;
                     }
-                    
+
                 }
-                
+
             }
 
 
