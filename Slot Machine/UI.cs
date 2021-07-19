@@ -20,7 +20,8 @@ namespace Slot_Machine
         public static void DisplayWinInfo(int amount )
         {
             if (amount > 0)         
-                Console.WriteLine($"You win!! £{amount}");           
+                Console.WriteLine($"You win!! £{amount}");
+            
         }
         public static void GridDisplay()
         {

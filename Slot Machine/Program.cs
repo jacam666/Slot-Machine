@@ -30,6 +30,7 @@ namespace Slot_Machine
                 }
 
                 Console.WriteLine($"Cash = £{cash}");
+                
                 Console.WriteLine("Play Slots? y/n");
 
                 response = Console.ReadLine();
@@ -44,7 +45,7 @@ namespace Slot_Machine
                 int[,] gridNumbers = new int[3, 3];
 
                 gridNumbers = GridNumberGenerator();
-
+                GridChecker(gridNumbers);
                 int wonCash = CashWonWithGrid(gridNumbers);
 
                 UI.DisplayWinInfo(wonCash);
@@ -52,24 +53,7 @@ namespace Slot_Machine
 
                 //UI.DisplayCurrentSlotGrid(gridNumbers);
             }
-            GridChecker(grid);
 
-            static int[,] GridNumberGenerator()
-            {
-                int[,] gridNumbers = new int[3, 3];
-                Random rng = new();
-                for (int i = 0; i < gridNumbers.GetLength(0); i++)
-                {
-                    for (int j = 0; j < gridNumbers.GetLength(1); j++)
-                    {
-                        gridNumbers[i, j] = rng.Next(0, 3);
-                        Console.Write(gridNumbers[i, j] + " ");
-                    }
-
-                    UI.GridDisplay();
-                }
-                return gridNumbers;
-            }
 
             /// <summary>
             /// Returns amount of cash won for a particular reel
@@ -77,7 +61,24 @@ namespace Slot_Machine
             /// <param name="grid">the gird to check</param>
             /// <returns>the won amount</returns>
         }
-        static void GridChecker(int[,] grid)
+        static int[,] GridNumberGenerator()
+        {
+            int[,] gridNumbers = new int[3, 3];
+            Random rng = new();
+            for (int i = 0; i < gridNumbers.GetLength(0); i++)
+            {
+                for (int j = 0; j < gridNumbers.GetLength(1); j++)
+                {
+                    gridNumbers[i, j] = rng.Next(0, 3);
+                    Console.Write(gridNumbers[i, j] + " ");
+                }
+
+                UI.GridDisplay();
+            }
+            return gridNumbers;
+        }
+
+        static int GridChecker(int[,] grid)
 
         {
             int cash = 0;
@@ -92,9 +93,6 @@ namespace Slot_Machine
                     cash += 2;
                 }
 
-
-
-
                 if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
                 {
                     cash += 2;
@@ -104,18 +102,17 @@ namespace Slot_Machine
                 {
                     cash += 2;
                 }
-                return cash;
+                
             }
+            return cash;
             
         }
 
-        static int CashWonWithGrid(int[,] grid)
+        static int CashWonWithGrid(int[,] gridChecker)
         {
             int cash = 0;
-            if (cash > 0)
-                cash += 2;
+            cash += 2;
             return cash;
-
         }
 
 
