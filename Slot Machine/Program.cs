@@ -11,28 +11,21 @@ namespace Slot_Machine
 
         static void Main(string[] args)
         {
-            string playerName;
-            Console.Write("Please Enter Player's Name: ");
-            playerName = Console.ReadLine();
-            Console.WriteLine($"Welcome to my slot game {playerName}");
-            Console.Write("Amount of Cash you would like to use in the slots: £");
+            UI.DisplayWelcomeScreen();
             double cash = Convert.ToDouble(Console.ReadLine());
             string response;
-
+            
 
             for (; ; ) // Loop forever
             {
                 if (cash <= 0)
                 {
-                    Console.WriteLine("You are out of cash. Game over.");
-                    Console.Read();
+                    UI.OutOfFunds();
                     break;
                 }
 
                 Console.WriteLine($"Cash = £{cash}");
-                
-                Console.WriteLine("Play Slots? y/n");
-
+                UI.DecisionToPlay();
                 response = Console.ReadLine();
 
                 if (response == "n")
@@ -41,81 +34,53 @@ namespace Slot_Machine
                 }
 
                 cash -= 1;
-
                 int[,] gridNumbers = new int[3, 3];
-
-                gridNumbers = GridNumberGenerator();
-                GridChecker(gridNumbers);
-                int wonCash = CashWonWithGrid(gridNumbers);
-
-                UI.DisplayWinInfo(wonCash);
-                cash = cash + wonCash;
-
-                //UI.DisplayCurrentSlotGrid(gridNumbers);
-            }
-
-
-            /// <summary>
-            /// Returns amount of cash won for a particular reel
-            /// </summary>
-            /// <param name="grid">the gird to check</param>
-            /// <returns>the won amount</returns>
+                if (cash > 0)                
+                    UI.DisplayCurrentSlotGrid(gridNumbers);
+                    CalculateGridWinnings(gridNumbers);              
+            }           
         }
-        static int[,] GridNumberGenerator()
-        {
-            int[,] gridNumbers = new int[3, 3];
-            Random rng = new();
-            for (int i = 0; i < gridNumbers.GetLength(0); i++)
-            {
-                for (int j = 0; j < gridNumbers.GetLength(1); j++)
-                {
-                    gridNumbers[i, j] = rng.Next(0, 3);
-                    Console.Write(gridNumbers[i, j] + " ");
-                }
-
-                UI.GridDisplay();
-            }
-            return gridNumbers;
-        }
-
-        static int GridChecker(int[,] grid)
-
+        /// <summary>
+        /// Returns amount of cash won for a particular reel
+        /// </summary>
+        /// <param name="grid">the gird to check</param>
+        /// <returns>the won amount</returns>
+        static int CalculateGridWinnings(int[,] grid)
         {
             int cash = 0;
-            for (int i = 0; i < grid.GetLength(0); i++)
+            
+            for (int i = 0; i < grid.GetLength(0); i++) //on a 3x3 grid, this runs 3 times
             {
                 if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines
                 {
-                    cash += 2;
+                    UI.DisplayWinInfo(cash);
+                    //UI.WinningsPerReel(amount);
+                    //cash += 2;
                 }
                 if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
                 {
-                    cash += 2;
+                    UI.DisplayWinInfo(cash);
+                    //UI.WinningsPerReel(amount);
+                    //cash += 2;
                 }
-
-                if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
-                {
-                    cash += 2;
-                }
-
-                if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0])) // diagonal lines
-                {
-                    cash += 2;
-                }
-                
             }
-            return cash;
+
+            if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
+            {
+                UI.DisplayWinInfo(cash);
+                //UI.WinningsPerReel(amount);
+                //cash += 2;
+            }
+
+            if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0])) // diagonal lines
+            {
+                UI.DisplayWinInfo(cash);
+                //UI.WinningsPerReel(amount);
+                //cash += 2;
+            }
             
-        }
-
-        static int CashWonWithGrid(int[,] gridChecker)
-        {
-            int cash = 0;
-            cash += 2;
             return cash;
         }
-
-
 
 
         /// old code
