@@ -42,17 +42,18 @@ namespace Slot_Machine
         {
             if (amount > 0)
                 Console.WriteLine($"You win!! £{amount}");
+               
         }
         /// <summary>
         /// when player runs out of cash
         /// </summary>
         public static void OutOfFunds()
 
-        {           
+        {
             {
                 Console.WriteLine("You are out of cash. Game over.");
                 Console.Read();
-              
+
             }
         }
         /// <summary>
@@ -60,7 +61,7 @@ namespace Slot_Machine
         /// </summary>
         public static void DecisionToPlay()
         {
-            Console.WriteLine("Play Slots? y/n");       
+            Console.WriteLine("Play Slots? y/n");
         }
 
         //public static void CashAvailable()
@@ -68,25 +69,25 @@ namespace Slot_Machine
 
         //    Console.WriteLine($"Cash = £");
         //}
-        public static int CalculateGridWinnings(int amount, int[,] grid)
-        {
-            int cash;
-            for (int i = 0; i < grid.GetLength(0); i++) //on a 3x3 grid, this runs 3 times
-            {
-                if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines                                            
-                    if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
-                    {
-                        UI.DisplayWinInfo(amount);
-                    }
-            }
+        //public static int CalculateGridWinnings(int amount, int[,] grid)
+        //{
+        //    int cash;
+        //    for (int i = 0; i < grid.GetLength(0); i++) //on a 3x3 grid, this runs 3 times
+        //    {
+        //        if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines                                            
+        //            if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
+        //            {
+        //                UI.DisplayWinInfo(amount);
+        //            }
+        //    }
 
-            if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
+        //    if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
 
-                if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0]))  // diagonal lines
-                {
-                    UI.DisplayWinInfo(amount);
-                }
-            return amount;
-        }
+        //        if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0]))  // diagonal lines
+        //        {
+        //            UI.DisplayWinInfo(amount);
+        //        }
+        //    return amount;
+        //}
     }
 }

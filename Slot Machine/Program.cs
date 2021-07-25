@@ -14,8 +14,8 @@ namespace Slot_Machine
             UI.DisplayWelcomeScreen();
             double cash = Convert.ToDouble(Console.ReadLine());
             string response;
-            int amount = +2; 
-            cash = cash + amount;
+            int amount = +2;
+
 
             for (; ; ) // Loop forever
             {
@@ -36,10 +36,12 @@ namespace Slot_Machine
 
                 int[,] gridNumbers = new int[3, 3];
                 UI.DisplayCurrentSlotGrid(gridNumbers);
-                UI.CalculateGridWinnings(amount);
+                CalculateGridWinnings(grid);
                 UI.DisplayWinInfo(amount);
             }
         }
+
+
 
         /// <summary>
         /// Returns amount of cash won for a particular reel
@@ -47,26 +49,32 @@ namespace Slot_Machine
         /// <param name="CalculateGridWinnings">the grid to check</param>
         /// <returns>the won amount</returns>
         /// 
-        //public static int CalculateGridWinnings(int amount ,int[,] grid)
-        //{
-                              
-        //    for (int i = 0; i < grid.GetLength(0); i++) //on a 3x3 grid, this runs 3 times
-        //    {
-        //        if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines                                            
-        //        if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
-        //        {
-        //            UI.DisplayWinInfo(amount);
-        //        }               
-        //    }
+        public static int CalculateGridWinnings(int[,] grid)
+        {
 
-        //    if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
-                    
-        //    if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0]))  // diagonal lines
-        //    {
-        //        UI.DisplayWinInfo(amount);
-        //    }         
-        //    return amount;
-        //}
+            int amount = 2;
+            for (int i = 0; i < grid.GetLength(0); i++) //on a 3x3 grid, this runs 3 times
+            {
+                if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines
+                {
+                    amount = +2;
+                }
+                if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
+                {
+                    amount = +2;
+                }
+            }
+
+            if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
+            {
+                amount = +2;
+            }
+            if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0]))  // diagonal lines
+            {
+                amount = +2;
+            }
+            return amount;
+        }
 
 
 
