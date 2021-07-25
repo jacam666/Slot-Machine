@@ -7,13 +7,15 @@ namespace Slot_Machine
 {
     class Program
     {
-        private static int[,] grid;
+        public static int[,] grid;
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             UI.DisplayWelcomeScreen();
             double cash = Convert.ToDouble(Console.ReadLine());
             string response;
+            int amount = +2; 
+            cash = cash + amount;
 
             for (; ; ) // Loop forever
             {
@@ -34,49 +36,37 @@ namespace Slot_Machine
 
                 int[,] gridNumbers = new int[3, 3];
                 UI.DisplayCurrentSlotGrid(gridNumbers);
-                //UI.DisplayWinInfo((int)cash);               
+                UI.CalculateGridWinnings(amount);
+                UI.DisplayWinInfo(amount);
             }
         }
 
-        ///// <summary>
-        ///// Returns amount of cash won for a particular reel
-        ///// </summary>
-        ///// <param name="CalculateGridWinnings">the grid to check</param>
-        ///// <returns>the won amount</returns>
-        ///// 
-        //static int CalculateGridWinnings(int[,] grid)
+        /// <summary>
+        /// Returns amount of cash won for a particular reel
+        /// </summary>
+        /// <param name="CalculateGridWinnings">the grid to check</param>
+        /// <returns>the won amount</returns>
+        /// 
+        //public static int CalculateGridWinnings(int amount ,int[,] grid)
         //{
-
-        //    int cash;
-        //    int amount;
-
+                              
         //    for (int i = 0; i < grid.GetLength(0); i++) //on a 3x3 grid, this runs 3 times
         //    {
-        //        if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines
+        //        if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines                                            
+        //        if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
         //        {
         //            UI.DisplayWinInfo(amount);
-        //        }
-
-        //        if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) ;//vertical lines
-        //        {
-        //            UI.DisplayWinInfo(amount);
-        //        }
-
+        //        }               
         //    }
 
         //    if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
+                    
+        //    if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0]))  // diagonal lines
         //    {
         //        UI.DisplayWinInfo(amount);
-        //    }
-
-
-        //    if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0])) ; // diagonal lines
-        //    {
-        //        UI.DisplayWinInfo(amount);
-        //    }
-
-        //    return cash;
-        //}   
+        //    }         
+        //    return amount;
+        //}
 
 
 

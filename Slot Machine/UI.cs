@@ -17,7 +17,6 @@ namespace Slot_Machine
             Console.WriteLine($"Welcome to my slot game {playerName} ");
             Console.Write("Amount of Cash you would like to use in the slots: £");
         }
-
         public static void DisplayCurrentSlotGrid(int[,] grid)
         {
             grid = new int[3, 3];
@@ -69,30 +68,25 @@ namespace Slot_Machine
 
         //    Console.WriteLine($"Cash = £");
         //}
-        public static int WinningsPerReel(int cash, int[,] grid)
-        {           
+        public static int CalculateGridWinnings(int amount, int[,] grid)
+        {
+            int cash;
             for (int i = 0; i < grid.GetLength(0); i++) //on a 3x3 grid, this runs 3 times
             {
-                if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines
-                {                 
-                    cash += 2;
-                }
-                if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
-                {                 
-                    cash += 2;
-                }
+                if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines                                            
+                    if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
+                    {
+                        UI.DisplayWinInfo(amount);
+                    }
             }
 
             if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
-            {               
-                cash += 2;
-            }
 
-            if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0])) // diagonal lines
-            {
-                cash += 2;
-            }
-            return cash;
+                if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0]))  // diagonal lines
+                {
+                    UI.DisplayWinInfo(amount);
+                }
+            return amount;
         }
     }
 }
