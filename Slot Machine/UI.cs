@@ -43,7 +43,6 @@ namespace Slot_Machine
         {
             if (amount > 0)
                 Console.WriteLine($"You win!! £{amount}");
-
         }
         /// <summary>
         /// when player runs out of cash
@@ -65,52 +64,35 @@ namespace Slot_Machine
             Console.WriteLine("Play Slots? y/n");       
         }
 
-        //public static void CashAvailable(int cash, int amount)
+        //public static void CashAvailable()
         //{
-            
-        //    Console.WriteLine($"Cash = £{amount}");
+
+        //    Console.WriteLine($"Cash = £");
         //}
-
-        public static void WinningsPerReel(int amount, int[,] grid)
-        {
-
-            int cash = 0;
+        public static int WinningsPerReel(int cash, int[,] grid)
+        {           
             for (int i = 0; i < grid.GetLength(0); i++) //on a 3x3 grid, this runs 3 times
             {
                 if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines
-                {
-                    UI.DisplayWinInfo(amount);
-
-                    amount += 2;
+                {                 
+                    cash += 2;
                 }
                 if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
-                {
-                    UI.DisplayWinInfo(amount);
-
-                    amount += 2;
+                {                 
+                    cash += 2;
                 }
             }
 
             if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
-            {
-                UI.DisplayWinInfo(amount);
-
-                amount += 2;
+            {               
+                cash += 2;
             }
 
             if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0])) // diagonal lines
             {
-                UI.DisplayWinInfo(amount);
-
-                amount += 2;
+                cash += 2;
             }
-            cash = cash + amount;
+            return cash;
         }
-            
-        
-            
-
-
-
     }
 }
