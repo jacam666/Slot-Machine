@@ -14,7 +14,8 @@ namespace Slot_Machine
             UI.DisplayWelcomeScreen();
             double cash = Convert.ToDouble(Console.ReadLine());
             string response;
-            int amount = +2;
+            int amount;
+            
 
 
             for (; ; ) // Loop forever
@@ -34,15 +35,13 @@ namespace Slot_Machine
                 }
                 cash -= 1;
 
-                int[,] gridNumbers = new int[3, 3];
+                int[,] gridNumbers = generateRandomGrid();
                 UI.DisplayCurrentSlotGrid(gridNumbers);
-                CalculateGridWinnings(grid);
+                amount = CalculateGridWinnings(gridNumbers);
                 UI.DisplayWinInfo(amount);
+                cash = cash + amount;
             }
         }
-
-
-
         /// <summary>
         /// Returns amount of cash won for a particular reel
         /// </summary>
@@ -75,7 +74,24 @@ namespace Slot_Machine
             }
             return amount;
         }
+        public static int generateRandomGrid(int gridNumbers)
+        {
+            grid = new int[3, 3];
+            Random rng = new();
+            
+            //TODO: implement that already 
 
+            for (int i = 0; i < grid.GetLength(0); i++)
+            {
+                for (int j = 0; j < grid.GetLength(1); j++)
+                {
+                    grid[i, j] = rng.Next(0, 3);
+                    //Console.Write(grid[i, j] + " ");
+                }
+                //Console.WriteLine(" ");
+            }
+            return gridNumbers;
+        }
 
 
         /// old code
