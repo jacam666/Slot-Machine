@@ -35,7 +35,7 @@ namespace Slot_Machine
                 }
                 cash -= 1;
 
-                int[,] gridNumbers = generateRandomGrid();
+                int[,] gridNumbers = generateRandomGrid(grid);
                 UI.DisplayCurrentSlotGrid(gridNumbers);
                 amount = CalculateGridWinnings(gridNumbers);
                 UI.DisplayWinInfo(amount);
@@ -51,7 +51,7 @@ namespace Slot_Machine
         public static int CalculateGridWinnings(int[,] grid)
         {
 
-            int amount = 2;
+            int amount = 0;
             for (int i = 0; i < grid.GetLength(0); i++) //on a 3x3 grid, this runs 3 times
             {
                 if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines
@@ -74,7 +74,7 @@ namespace Slot_Machine
             }
             return amount;
         }
-        public static int generateRandomGrid(int gridNumbers)
+        public static int [,] generateRandomGrid(int[,] grid)
         {
             grid = new int[3, 3];
             Random rng = new();
@@ -85,12 +85,10 @@ namespace Slot_Machine
             {
                 for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                    grid[i, j] = rng.Next(0, 3);
-                    //Console.Write(grid[i, j] + " ");
-                }
-                //Console.WriteLine(" ");
+                    grid[i, j] = rng.Next(0, 3);                    
+                }                
             }
-            return gridNumbers;
+            return grid;
         }
 
 
