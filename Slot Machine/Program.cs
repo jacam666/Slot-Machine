@@ -35,11 +35,11 @@ namespace Slot_Machine
                 }
                 cash -= 1;
 
-                int[,] gridNumbers = generateRandomGrid(grid);
+                int[,] gridNumbers = GenerateRandomGrid();
                 UI.DisplayCurrentSlotGrid(gridNumbers);
                 amount = CalculateGridWinnings(gridNumbers);
                 UI.DisplayWinInfo(amount);
-                cash = cash + amount;
+                cash += amount;
             }
         }
         /// <summary>
@@ -74,7 +74,7 @@ namespace Slot_Machine
             }
             return amount;
         }
-        public static int [,] generateRandomGrid(int[,] grid)
+        public static int [,] GenerateRandomGrid()
         {
             grid = new int[3, 3];
             Random rng = new();
