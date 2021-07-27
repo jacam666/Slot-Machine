@@ -27,10 +27,9 @@ namespace Slot_Machine
                 }
                 //  Console.WriteLine($"Cash = £{cash}");
                 UI.DisplayCurrentCash(cash);
-                UI.DecisionToPlay();
-                response = Console.ReadLine();
+                bool userWantsToPlay = UI.DecisionToPlay();
 
-                if (response == "n")
+                if(!userWantsToPlay)
                 {
                     break;
                 }
