@@ -13,7 +13,7 @@ namespace Slot_Machine
         {
             
             double cash = UI.DisplayWelcomeScreenGetCashValue();
-            string response;
+            
             int amount;
             
 
@@ -25,11 +25,12 @@ namespace Slot_Machine
                     UI.OutOfFunds();
                     break;
                 }
+
                 //  Console.WriteLine($"Cash = £{cash}");
                 UI.DisplayCurrentCash(cash);
                 bool userWantsToPlay = UI.DecisionToPlay();
 
-                if(!userWantsToPlay)
+                if (!userWantsToPlay)
                 {
                     break;
                 }
@@ -75,6 +76,10 @@ namespace Slot_Machine
             }
             return amount;
         }
+        /// <summary>
+        /// returns a random 3 * 3 grid
+        /// </summary>
+        /// <returns>random 3*3 grid</returns>
         public static int[,] GenerateRandomGrid()
         {
             grid = new int[3, 3];
@@ -86,7 +91,7 @@ namespace Slot_Machine
             {
                 for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                    grid[i, j] = rng.Next(0, 0);                    
+                    grid[i, j] = rng.Next(0, 3);                    
                 }                
             }
             return grid;

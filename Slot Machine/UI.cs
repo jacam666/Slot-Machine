@@ -8,7 +8,10 @@ namespace Slot_Machine
 {
     static class UI
     {
-
+        /// <summary>
+        /// displays playername,welcome message,amount of cash playing with
+        /// </summary>
+        /// <returns>multiple user interactions</returns>
         public static double DisplayWelcomeScreenGetCashValue()
         {
             string playerName;
@@ -22,12 +25,18 @@ namespace Slot_Machine
             return cash;
 
         }
-
+        /// <summary>
+        /// displays current cash available
+        /// </summary>
+        /// <param name="cash"></param>
         public static void DisplayCurrentCash(double cash)
         {
             Console.WriteLine($"Cash = £{cash}");
         }
-
+        /// <summary>
+        /// displays current 3*3 random grid
+        /// </summary>
+        /// <param name="grid"></param>
         public static void DisplayCurrentSlotGrid(int[,] grid)
         {
 
