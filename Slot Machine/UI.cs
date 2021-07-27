@@ -9,25 +9,35 @@ namespace Slot_Machine
     static class UI
     {
 
-        public static void DisplayWelcomeScreen()
+        public static double DisplayWelcomeScreenGetCashValue()
         {
             string playerName;
+            string response;
             Console.Write("Please Enter Player's Name: ");
             playerName = Console.ReadLine();
             Console.WriteLine($"Welcome to my slot game {playerName} ");
             Console.Write("Amount of Cash you would like to use in the slots: £");
+            response = Console.ReadLine();
+            double cash = Convert.ToDouble(response);
+            return cash;
+
         }
+
+        public static void DisplayCurrentCash(double cash)
+        {
+            Console.WriteLine($"Cash = £{cash}");
+        }
+
         public static void DisplayCurrentSlotGrid(int[,] grid)
         {
-            grid = new int[3, 3];
-            Random rng = new();
+
             //TODO: implement that already 
 
             for (int i = 0; i < grid.GetLength(0); i++)
             {
                 for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                    grid[i, j] = rng.Next(0, 3);
+                    //grid[i, j] = rng.Next(0, 3);
                     Console.Write(grid[i, j] + " ");
 
                 }

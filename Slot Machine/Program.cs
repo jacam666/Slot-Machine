@@ -11,8 +11,8 @@ namespace Slot_Machine
 
         public static void Main(string[] args)
         {
-            UI.DisplayWelcomeScreen();
-            double cash = Convert.ToDouble(Console.ReadLine());
+            
+            double cash = UI.DisplayWelcomeScreenGetCashValue();
             string response;
             int amount;
             
@@ -25,7 +25,8 @@ namespace Slot_Machine
                     UI.OutOfFunds();
                     break;
                 }
-                Console.WriteLine($"Cash = £{cash}");
+                //  Console.WriteLine($"Cash = £{cash}");
+                UI.DisplayCurrentCash(cash);
                 UI.DecisionToPlay();
                 response = Console.ReadLine();
 
@@ -36,6 +37,7 @@ namespace Slot_Machine
                 cash -= 1;
 
                 int[,] gridNumbers = GenerateRandomGrid();
+
                 UI.DisplayCurrentSlotGrid(gridNumbers);
                 amount = CalculateGridWinnings(gridNumbers);
                 UI.DisplayWinInfo(amount);
@@ -56,25 +58,25 @@ namespace Slot_Machine
             {
                 if (grid[i, 0] == grid[i, 1] && grid[i, 1] == grid[i, 2])  //horizontal lines
                 {
-                    amount = +2;
+                    amount = amount + 2;
                 }
                 if (grid[0, i] == grid[1, i] && grid[1, i] == grid[2, i]) //vertical lines
                 {
-                    amount = +2;
+                    amount = amount +2;
                 }
             }
 
             if ((grid[0, 0]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 2])) // diagonal lines
             {
-                amount = +2;
+                amount = amount +2;
             }
             if ((grid[0, 2]) == (grid[1, 1]) && (grid[1, 1]) == (grid[2, 0]))  // diagonal lines
             {
-                amount = +2;
+                amount = amount +2;
             }
             return amount;
         }
-        public static int [,] GenerateRandomGrid()
+        public static int[,] GenerateRandomGrid()
         {
             grid = new int[3, 3];
             Random rng = new();
@@ -85,7 +87,7 @@ namespace Slot_Machine
             {
                 for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                    grid[i, j] = rng.Next(0, 3);                    
+                    grid[i, j] = rng.Next(0, 0);                    
                 }                
             }
             return grid;
