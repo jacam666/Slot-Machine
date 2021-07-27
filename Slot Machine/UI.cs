@@ -69,9 +69,18 @@ namespace Slot_Machine
         /// <summary>
         /// players decision to play again
         /// </summary>
-        public static void DecisionToPlay()
+        public static bool DecisionToPlay()
         {
+            string response;
+            bool wantsToPlay = false;
             Console.WriteLine("Play Slots? y/n");
+            response = Console.ReadLine();
+            if (response == "y")
+            {
+                wantsToPlay = true;               
+            }
+            return wantsToPlay;
+
         }
       
     }
