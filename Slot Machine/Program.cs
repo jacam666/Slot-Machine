@@ -47,7 +47,7 @@ namespace Slot_Machine
         /// <summary>
         /// Returns amount of cash won for a particular reel
         /// </summary>
-        /// <param name="CalculateGridWinnings">the grid to check</param>
+        /// <param name="grid">the grid to check</param>
         /// <returns>the won amount</returns>
         /// 
         public static int CalculateGridWinnings(int[,] grid)
@@ -77,16 +77,13 @@ namespace Slot_Machine
             return amount;
         }
         /// <summary>
-        /// returns a random 3 * 3 grid
+        /// returns a random 2d array in a grid like fashion
         /// </summary>
-        /// <returns>random 3*3 grid</returns>
+        /// <returns>2d arraey grid</returns>
         public static int[,] GenerateRandomGrid()
         {
             grid = new int[3, 3];
-            Random rng = new();
-            
-            //TODO: implement that already 
-
+            Random rng = new();            
             for (int i = 0; i < grid.GetLength(0); i++)
             {
                 for (int j = 0; j < grid.GetLength(1); j++)

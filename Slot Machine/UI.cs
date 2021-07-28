@@ -11,7 +11,7 @@ namespace Slot_Machine
         /// <summary>
         /// displays playername,welcome message,amount of cash playing with
         /// </summary>
-        /// <returns>multiple user interactions</returns>
+        /// <returns>cash</returns>
         public static double DisplayWelcomeScreenGetCashValue()
         {
             string playerName;
@@ -67,13 +67,9 @@ namespace Slot_Machine
         /// when player runs out of cash
         /// </summary>
         public static void OutOfFunds()
-
-        {
-            {
+        {           
                 Console.WriteLine("You are out of cash. Game over.");
-                Console.Read();
-
-            }
+                Console.Read();           
         }
         /// <summary>
         /// players decision to play again
